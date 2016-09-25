@@ -1,0 +1,10 @@
+.loading{
+  width: 100%;
+}
+
+.loading-image{
+    margin: 10px auto 10px auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
