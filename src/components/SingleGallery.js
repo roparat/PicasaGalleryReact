@@ -1,8 +1,8 @@
 import * as React from 'react';
-import * as PicasaService from './PicasaService';
+import * as PicasaService from '../PicasaService';
 import SingleImage from './SingleImage';
 import './AlbumCover.css';
-import Loading from './Loading';
+import Loading from '../Loading';
 
 class SingleGallery extends React.Component {
       constructor(props){
