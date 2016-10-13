@@ -18,7 +18,7 @@ class SingleGallery extends React.Component {
             if (this.props.isLoading || this.props.gallery.photos === undefined)
                   return <Loading text={`Single Gallery loading ${this.props.params.galleryId}`}/>
             
-            return <SingleGalleryUI gallery={this.props.gallery} />;
+            return <SingleGalleryUI gallery={this.props.gallery} copyImageSize={this.props.copyImageSize}/>;
       }
 
       componentDidMount() {
@@ -34,7 +34,8 @@ const mapStateToProps = (store) => {
       return {
             gallery : store.singleGallery.singleGallery,
             username : store.picasaSettings.username,
-            isLoading : store.singleGallery.loading
+            isLoading : store.singleGallery.loading,
+            copyImageSize : store.picasaSettings.imageSize
       }
 }
 

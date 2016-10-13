@@ -1,47 +1,53 @@
 import React from 'react';
-import { Control, Form, actions } from 'react-redux-form';
+import { Control, Form } from 'react-redux-form';
+import {changeUsername,changeImageSize} from '../actions';
 
 export default class SettingsPanel extends React.Component {
+
   constructor(){
     super();
     this.changeImageSize = this.changeImageSize.bind(this);
-    this.changeUsername = this.changeUsername.bind(this);
-    this.updateUsername = this.updateUsername.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render(){
     return (
       <div className="panel panel-default" >
         <div className="panel-body">
-          <Form className="form-inline" model="form.settings" >
+          <Form className="form-inline" model="form.settings" onSubmit={(val) => this.handleSubmit(val)} >
             <div className="form-group">
               <label data-for="username">Name</label>
               <span> </span>
-              <Control.text model="form.settings.username" type="text" className="form-control" id="username" />
+              <Control.text model="form.settings.username" type="text" className="form-control" />
             </div>
             <span> </span>
-            <button type="submit" className="btn btn-default" onClick={this.updateUsername}>Update</button>
+            <button type="submit" className="btn btn-default">Update</button>
             <span>  </span>
             <div className="form-group">
               <label data-for="imagesize">Image Size</label>
               <span> </span>
-              <Control.text model="form.settings.imageSize" type="number" className="form-control" id="imagesize" onChange={this.changeImageSize} />
+              <Control.text model="form.settings.imageSize" 
+                            type="number" 
+                            className="form-control" 
+                            onChange={this.changeImageSize}
+               />
             </div>
           </Form>
         </div>
       </div>
     );
   }
+
   changeImageSize(e){
-    //this.props.onChange({imageSize:parseInt(e.target.value,10)});
-    const {dispatch} = this.props;
+    console.log('change image size');
+    let {dispatch} = this.props;
+    dispatch(changeImageSize(e.target.value));
   }
 
-  changeUsername(e){
-    //this.setState({username:e.target.value});
+  handleSubmit(val){
+    console.log(val);
+    let {dispatch} = this.props;
+    dispatch(changeUsername(val.username));
   }
 
-  updateUsername(e){
-    //this.props.onChange({username:this.state.username});
-  }
 }

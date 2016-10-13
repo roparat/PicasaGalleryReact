@@ -3,9 +3,9 @@ import SingleImage from './SingleImage';
 import {getImageUrl} from '../PicasaService';
 
 const SingleGalleryUI = (props) => {
-      
+
       var imageList = props.gallery.photos.map((singleImage)=>{
-            singleImage.image.url = getImageUrl(singleImage.image.url,props.imageSize);
+            singleImage.image.url = getImageUrl(singleImage.image.url,props.copyImageSize);
             return <SingleImage key={singleImage.title} photo={singleImage} />;
       });
 

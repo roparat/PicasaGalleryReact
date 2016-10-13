@@ -1,3 +1,5 @@
+import * as c from '../constant';
+
 const initialState = {
       username:'roparat',
       imageSize:1024
@@ -5,16 +7,14 @@ const initialState = {
 
 const settings = (state=initialState, action) => {
       switch (action.type) {
-            case 'SETTING:SET_USERNAME':
+            case c.GLOBAL_SET_USERNAME:
                   return Object.assign({},state,{
                         username:action.username
                   });
 
-            case 'SETTING:SET_COPYSIZE':
-                  return Object.assign({},state,{
-                        imageSize:action.imageSize
-                  });
-
+            case c.GLOBAL_SET_IMAGESIZE:
+                  return {...state,imageSize:action.imageSize};
+ 
             default:
                   return state;
       }

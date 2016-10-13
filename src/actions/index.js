@@ -26,3 +26,17 @@ export const setSingleGallery = (singleGallery) => {
             singleGallery
       }
 }
+
+export const changeUsername = (username) => {
+      return {
+            type: c.GLOBAL_SET_USERNAME,
+            username
+      }
+}
+
+export const changeImageSize = (imageSize) => {
+      return {
+            type: c.GLOBAL_SET_IMAGESIZE,
+            imageSize
+      }
+}

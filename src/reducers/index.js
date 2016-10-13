@@ -15,7 +15,7 @@ const reducers = combineReducers({
       picasaSettings,
       form : combineForms({
                   settings: initialSettingFormState
-            })
+            },'form')
 });
 
 export default reducers;
