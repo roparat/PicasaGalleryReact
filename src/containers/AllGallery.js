@@ -1,7 +1,7 @@
 import React from 'react';
 import * as PicasaService from '../PicasaService';
 import store from '../store';
-import {resetGalleries,addGalleryToGalleries} from '../actions/';
+import {setGalleries} from '../actions/';
 import {connect} from 'react-redux';
 import AllGalleryUI from '../components/AllGalleryUI';
 
@@ -32,10 +32,7 @@ class AllGallery extends React.Component {
 
             PicasaService.fetchGalleryList(username)
             .then((result) => {
-                  store.dispatch(resetGalleries());
-                  result.gallerys.forEach((single)=>{
-                        store.dispatch(addGalleryToGalleries(single));
-                  })
+                  store.dispatch(setGalleries(result.gallerys));
             });
       }
 
@@ -43,7 +40,8 @@ class AllGallery extends React.Component {
 
 const mapStateToProps = (store) => {
       return {
-            gallerys : store.allGalleries
+            gallerys : store.allGalleries,
+            username : store.picasaSettings.username,
       }
 }
 

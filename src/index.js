@@ -7,7 +7,7 @@ import store from './store';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import AllGallery from './containers/AllGallery';
-import SingleGallery from './components/SingleGallery';
+import SingleGallery from './containers/SingleGallery';
 
 
 ReactDOM.render((

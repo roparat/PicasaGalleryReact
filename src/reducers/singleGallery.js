@@ -1,10 +1,15 @@
-const singleGallery = (state=[], action) => {
-      switch (action.type) {
-            case 'SINGLEGALLERY:RESET':
-                  return [];
+import * as c from '../constant';
 
-            case 'SINGLEGALLERY:ADD_IMAGE':
-                  return state.concat(action.image);
+const initialState = {
+      singleGallery : {},
+      loading : false
+}
+
+const singleGallery = (state=initialState, action) => {
+      switch (action.type) {
+
+            case c.SINGLEGALLERY_SET_PHOTOS:
+                  return Object.assign({},state,{singleGallery:action.singleGallery});
 
             default:
                   return state;

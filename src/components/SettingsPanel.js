@@ -1,4 +1,5 @@
 import React from 'react';
+import { Control, Form, actions } from 'react-redux-form';
 
 export default class SettingsPanel extends React.Component {
   constructor(){
@@ -10,13 +11,13 @@ export default class SettingsPanel extends React.Component {
 
   render(){
     return (
-      <div className="panel panel-default">
+      <div className="panel panel-default" >
         <div className="panel-body">
-          <form className="form-inline">
+          <Form className="form-inline" model="form.settings" >
             <div className="form-group">
               <label data-for="username">Name</label>
               <span> </span>
-              <input type="text" className="form-control" id="username" placeholder="roparat" value={this.props.username} onChange={this.changeUsername}/>
+              <Control.text model="form.settings.username" type="text" className="form-control" id="username" />
             </div>
             <span> </span>
             <button type="submit" className="btn btn-default" onClick={this.updateUsername}>Update</button>
@@ -24,15 +25,16 @@ export default class SettingsPanel extends React.Component {
             <div className="form-group">
               <label data-for="imagesize">Image Size</label>
               <span> </span>
-              <input type="number" className="form-control" id="imagesize" placeholder="1024" value={this.props.imageSize} onChange={this.changeImageSize}/>
+              <Control.text model="form.settings.imageSize" type="number" className="form-control" id="imagesize" onChange={this.changeImageSize} />
             </div>
-          </form>
+          </Form>
         </div>
       </div>
     );
   }
   changeImageSize(e){
     //this.props.onChange({imageSize:parseInt(e.target.value,10)});
+    const {dispatch} = this.props;
   }
 
   changeUsername(e){

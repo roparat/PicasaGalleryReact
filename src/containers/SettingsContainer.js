@@ -9,4 +9,10 @@ const mapStateToProps = (store) => {
       }
 }
 
-export default connect(mapStateToProps)(SettingsPanel);
+const mapDispatchToProps = (dispatch)=>{
+      return {
+
+      }
+}
+
+export default connect()(SettingsPanel);
